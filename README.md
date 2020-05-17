@@ -11,8 +11,14 @@ To run all scrapers, simply type:
 ```python
 python3 main.py
 ```
-
 And wait until they finish. They'll create and replace the .csv-files automatically.
+
+Make sure to install BeautifulSoup 4 beforehand, though.
+
+```python
+pip3 install bs4
+```
+
 
 I hope to create a tool to handle the repetitive tasks, and let new scrapers hook into it, making it easier to add new scrapers. That's in the future.
 
