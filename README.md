@@ -18,4 +18,11 @@ I hope to create a tool to handle the repetitive tasks, and let new scrapers hoo
 
 Please feel free to create a new issue if there's anything I can help with.
 
+## Supported webshops
+| Webshop name  | Webshop URL |
+| ------------- | ------------- |
+| Cognachuset  | http://cognachuset.dk  |
+| Havnens Vin  | http://havnens-vin.dk  |
+
+
 License-wise, use this code however you please. Consider it your own.
