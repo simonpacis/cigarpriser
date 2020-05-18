@@ -17,7 +17,6 @@ class Scraper:
 		self.product_middle_select = "div[itemprop='description']"
 		self.product_middle_length_seperate_for_non_numeric = False
 		self.product_middle_gauge_seperate_for_non_numeric = False
-		self.product_middle_get_type = True
 
 	def get_brand(self, href):
 	    try:

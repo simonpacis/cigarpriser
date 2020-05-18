@@ -17,7 +17,6 @@ class Scraper:
 		self.product_middle_select = '.product.overview'
 		self.product_middle_length_seperate_for_non_numeric = True
 		self.product_middle_gauge_seperate_for_non_numeric = True
-		self.product_middle_get_type = False
 
 
 	def get_brand(self, href):
