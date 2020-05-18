@@ -4,6 +4,8 @@ import csv
 import re
 import sys
 
+cigar_types = ["Petit Corona", "Gordito", "Robusto", "Corona", "Toro", "Gordo", "Panatela", "Lonsdale", "Churchill", "Toro Grande", "Lancero", "Double Corona", "Gran Corona"]
+
 class Cigar:
   def __init__(self, name, price, url, brand, length, gauge, cigar_type, store):
     self.store = store
@@ -19,6 +21,11 @@ class Cigar:
 
     if(self.cigar_type in self.name):
     	self.name = self.name.replace(self.cigar_type, "").strip()
+
+    for cigar in cigar_types:
+        if(cigar in self.name):
+            self.name = self.name.replace(cigar, "").strip()
+            self.cigar_type = cigar
 
 
 def cleanhtml(raw_html):
@@ -67,10 +74,7 @@ def parse(scraper):
                                 print("Length is not numeric. Setting to 0")
                                 length = 0
 
-                        if(scraper.product_middle_get_type):
-                            cigar_type = scraper.get_type(product_middle)
-                        else:
-                            cigar_type = "Unknown"
+                        cigar_type = scraper.get_type(product_middle, name)
 
                         gauge = scraper.get_gauge(product_middle)
                         if(scraper.product_middle_gauge_seperate_for_non_numeric):
@@ -88,6 +92,7 @@ def parse(scraper):
                     gauge = 0
 
                 cigars.append(Cigar(name, price, url, brand, length, gauge, cigar_type, scraper.store))
+
                 i = i + 1
 
 

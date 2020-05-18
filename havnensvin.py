@@ -39,6 +39,13 @@ class Scraper:
 	def get_price(self, product):
 		return float(re.sub("[^\d.]+", "", ((product.select_one(self.product_price_select).contents[0].split(",")[0]).replace(".",""))))
 
+	def get_type(self, product_middle, name):
+		global cigar_types
+		for cigar in cigar_types:
+			if(cigar.lower() in product_middle.lower()):
+				return cigar
+		return "Unknown"
+
 	def get_length(self, product_middle):
 		start = product_middle.find("Længde : ") + len("Længde : ")
 		end = product_middle.find("mmR")
